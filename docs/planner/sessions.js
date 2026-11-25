@@ -13,3 +13,10 @@ export function toggleSaved(saved, id) {
   else next.add(id);
   return next;
 }
+
+export function filterSessions(track) {
+  if (!track || track === 'All tracks') return [...sessions];
+  return sessions
+    .filter((session) => session.track === track)
+    .sort((a, b) => a.time.localeCompare(b.time));
+}

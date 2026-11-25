@@ -11,6 +11,9 @@ header p { max-width: 46ch; margin: 0; }
 .eyebrow { color: #a7e7d8; font-weight: 700; }
 h1 { margin: .25rem 0 .4rem; font-size: clamp(2rem, 6vw, 3.75rem); line-height: 1.15; }
 h2 { margin: 1.5rem 0 .3rem; }
+.filter { display: flex; align-items: center; gap: .75rem; margin-top: 1rem; }
+.filter label { font-weight: 700; }
+.filter select { min-width: 12rem; padding: .45rem .65rem; border: 1px solid #718692; border-radius: .35rem; background: #fff; color: #17273a; }
 #count { margin: .25rem 0 1rem; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: .75rem; list-style: none; padding: 0; }
 .cards li { padding: 1rem; background: #fff; border: 1px solid #c2cdd5; border-radius: .75rem; }

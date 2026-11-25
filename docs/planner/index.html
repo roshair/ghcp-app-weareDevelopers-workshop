@@ -16,6 +16,15 @@
     </header>
     <section aria-labelledby="schedule">
       <h2 id="schedule">Schedule</h2>
+      <div class="filter">
+        <label for="track">Track</label>
+        <select id="track" name="track">
+          <option value="All tracks">All tracks</option>
+          <option value="Community">Community</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Design">Design</option>
+        </select>
+      </div>
       <p id="count" role="status"></p>
       <ul id="sessions" class="cards"></ul>
       <noscript>Enable JavaScript to view the sample schedule.</noscript>
