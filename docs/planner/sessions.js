@@ -7,6 +7,18 @@ export const sessions = [
   { id: 'open-source', time: '11:30', track: 'Community', title: 'Finding your first open-source issue' },
 ];
 
+export const ALL_TRACKS = 'All tracks';
+
+export function getTracks(list = sessions) {
+  return [ALL_TRACKS, ...new Set(list.map(({ track }) => track))];
+}
+
+export function filterByTrack(track, list = sessions) {
+  return list
+    .filter((session) => track === ALL_TRACKS || session.track === track)
+    .sort((a, b) => a.time.localeCompare(b.time));
+}
+
 export function toggleSaved(saved, id) {
   const next = new Set(saved);
   if (next.has(id)) next.delete(id);
