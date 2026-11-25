@@ -13,3 +13,8 @@ export function toggleSaved(saved, id) {
   else next.add(id);
   return next;
 }
+
+export function filterSessions(items, track) {
+  if (track === 'All tracks') return [...items];
+  return items.filter((session) => session.track === track);
+}
