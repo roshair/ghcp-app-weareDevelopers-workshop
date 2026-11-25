@@ -1,11 +1,13 @@
-import { sessions, toggleSaved } from './sessions.js';
+import { filterByTrack, getTracks, toggleSaved } from './sessions.js';
 
 const list = document.querySelector('#sessions');
 const count = document.querySelector('#count');
+const trackSelect = document.querySelector('#track');
 let saved = new Set();
+let visible = [];
 
 function updateCount() {
-  count.textContent = `${sessions.length} shown · ${saved.size} saved`;
+  count.textContent = `${visible.length} shown · ${saved.size} saved`;
 }
 
 function sessionCard(session) {
@@ -30,5 +32,12 @@ function sessionCard(session) {
   return card;
 }
 
-list.replaceChildren(...sessions.map(sessionCard));
-updateCount();
+function render() {
+  visible = filterByTrack(trackSelect.value);
+  list.replaceChildren(...visible.map(sessionCard));
+  updateCount();
+}
+
+trackSelect.replaceChildren(...getTracks().map((track) => new Option(track, track)));
+trackSelect.addEventListener('change', render);
+render();
