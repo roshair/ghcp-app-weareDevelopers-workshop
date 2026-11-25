@@ -7,6 +7,11 @@ export const sessions = [
   { id: 'open-source', time: '11:30', track: 'Community', title: 'Finding your first open-source issue' },
 ];
 
+export function filterSessions(track) {
+  if (track === 'all') return sessions;
+  return sessions.filter((session) => session.track === track);
+}
+
 export function toggleSaved(saved, id) {
   const next = new Set(saved);
   if (next.has(id)) next.delete(id);
